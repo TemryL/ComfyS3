@@ -72,6 +72,6 @@ def get_s3_instance():
 
 
 # Example usage:
-s3_instance = get_s3_instance()
+# s3_instance = get_s3_instance()
 # s3_instance.upload_file(local_path="input/example_s3.jpeg", s3_path="input/example_s3.jpeg")
-s3_instance.download_file(s3_path="input/example_s3.jpeg", local_path="input/example_s3.jpeg")
+# s3_instance.download_file(s3_path="input/example_s3.jpeg", local_path="input/example_s3.jpeg")
