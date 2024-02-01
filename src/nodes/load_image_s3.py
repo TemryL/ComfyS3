@@ -3,7 +3,7 @@ import torch
 import numpy as np
 from PIL import Image, ImageOps, ImageSequence
 
-from .s3 import get_s3_instance
+from ..client_s3 import get_s3_instance
 S3_INSTANCE = get_s3_instance()
 
 
@@ -51,14 +51,3 @@ class LoadImageS3:
             output_mask = output_masks[0]
 
         return (output_image, output_mask)
-
-
-NODE_CLASS_MAPPINGS = {
-    "LoadImageS3": LoadImageS3
-}
-
-NODE_DISPLAY_NAME_MAPPINGS = {
-    "LoadImageS3": "Load Image from S3"
-}
-
-
