@@ -16,8 +16,7 @@ S3_OUTPUT_DIR = "..."
 
 # Available Features
 ComfyUI nodes to:
-- load image from Amazon S3 buckets
-- save image to Amazon S3 buckets
+- load/save image from/to Amazon S3 buckets
 
 # TODO
 ComfyUI nodes to:
