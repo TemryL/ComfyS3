@@ -24,3 +24,7 @@ ComfyUI nodes to:
 - save video to Amazon S3 buckets
 - load checkpoints from Amazon S3 buckets
 - Integrate ComfyS3 to [ComfyUI-Manager](https://github.com/ltdrdata/ComfyUI-Manager)
+
+# Credits
+- [ComfyUI](https://github.com/comfyanonymous/ComfyUI)
+- [ComfyUI-VideoHelperSuite](https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite)
