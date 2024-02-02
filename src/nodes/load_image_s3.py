@@ -12,7 +12,6 @@ class LoadImageS3:
     def INPUT_TYPES(s):
         input_dir = os.getenv("S3_INPUT_DIR")
         files = S3_INSTANCE.get_files(prefix=input_dir)
-        files = [f.replace(input_dir, "") for f in files]
         return {"required":
                     {"image": (sorted(files), {"image_upload": False})},
                 }
