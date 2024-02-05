@@ -85,7 +85,7 @@ class S3:
         except Exception as e:
             raise RuntimeError(f"Failed to upload file to S3: {e}")
     
-    def get_save_image_path(self, filename_prefix, image_width=0, image_height=0):
+    def get_save_path(self, filename_prefix, image_width=0, image_height=0):
         def map_filename(filename):
             prefix_len = len(os.path.basename(filename_prefix))
             prefix = filename[:prefix_len + 1]

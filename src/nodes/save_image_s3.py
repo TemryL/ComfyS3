@@ -37,7 +37,7 @@ class SaveImageS3:
 
     def save_images(self, images, filename_prefix="ComfyUI", prompt=None, extra_pnginfo=None):
         filename_prefix += self.prefix_append
-        full_output_folder, filename, counter, subfolder, filename_prefix = S3_INSTANCE.get_save_image_path(filename_prefix, images[0].shape[1], images[0].shape[0])
+        full_output_folder, filename, counter, subfolder, filename_prefix = S3_INSTANCE.get_save_path(filename_prefix, images[0].shape[1], images[0].shape[0])
         results = list()
         
         for image in images:
