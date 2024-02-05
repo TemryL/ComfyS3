@@ -113,7 +113,6 @@ class S3:
         try:
             # Continue with the counter calculation
             files = self.get_files(full_output_folder_s3)
-            print(files)
             counter = max(
                 filter(
                     lambda a: a[1][:-1] == filename and a[1][-1] == "_",
