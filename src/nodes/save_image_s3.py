@@ -30,10 +30,8 @@ class SaveImageS3:
 
     RETURN_TYPES = ()
     FUNCTION = "save_images"
-
     OUTPUT_NODE = True
-
-    CATEGORY = "image"
+    CATEGORY = "ComfyS3"
 
     def save_images(self, images, filename_prefix="ComfyUI", prompt=None, extra_pnginfo=None):
         filename_prefix += self.prefix_append
