@@ -50,7 +50,7 @@ class SaveImageS3:
                     for x in extra_pnginfo:
                         metadata.add_text(x, json.dumps(extra_pnginfo[x]))
             
-            file = f"{filename}_{counter:05}_.png"
+            file = f"{filename}_{counter:05}.png"
             temp_file = None
             try:
                 # Create a temporary file
