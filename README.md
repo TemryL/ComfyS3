@@ -20,7 +20,7 @@ ComfyUI nodes to:
 - [ ] load video from Amazon S3 buckets
 - [x] save VHS video files to Amazon S3 buckets
 - [ ] load checkpoints from Amazon S3 buckets
-- [ ] Integrate ComfyS3 to [ComfyUI-Manager](https://github.com/ltdrdata/ComfyUI-Manager)
+- [ ] install ComfyS3 from [ComfyUI-Manager](https://github.com/ltdrdata/ComfyUI-Manager)
 
 # Credits
 - [ComfyUI](https://github.com/comfyanonymous/ComfyUI)
