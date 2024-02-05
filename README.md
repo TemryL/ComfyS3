@@ -18,7 +18,7 @@ S3_OUTPUT_DIR = "..."
 ComfyUI nodes to:
 - [x] load/save image from/to Amazon S3 buckets
 - [ ] load video from Amazon S3 buckets
-- [x] save VHS (Video Helper Suite) video files to Amazon S3 buckets
+- [x] save VHS (VideoHelperSuite) video files to Amazon S3 buckets
 - [ ] load checkpoints from Amazon S3 buckets
 - [ ] install ComfyS3 from [ComfyUI-Manager](https://github.com/ltdrdata/ComfyUI-Manager)
 
