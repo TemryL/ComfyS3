@@ -1,5 +1,6 @@
 import os
 import boto3
+from .logger import logger
 from botocore.exceptions import NoCredentialsError
 
 from dotenv import load_dotenv
@@ -22,7 +23,8 @@ class S3:
 
     def get_client(self):
         if not all([self.region, self.access_key, self.secret_key, self.bucket_name]):
-            raise ValueError("Missing required S3 environment variables")
+            err = "Missing required S3 environment variables."
+            logger.error(err)
     
         try:
             s3 = boto3.resource(
@@ -33,7 +35,8 @@ class S3:
             )
             return s3
         except Exception as e:
-            raise RuntimeError(f"Failed to create S3 client: {e}")
+            err = f"Failed to create S3 client: {e}"
+            logger.error(err)
 
     def get_files(self, prefix):
         if self.does_folder_exist(prefix):
@@ -43,7 +46,8 @@ class S3:
                 files = [f.replace(prefix, "") for f in files]
                 return files
             except Exception as e:
-                raise RuntimeError(f"Failed to get files from S3: {e}")
+                err = f"Failed to get files from S3: {e}"
+                logger.error(err)
         else:
             return []
     
@@ -53,14 +57,16 @@ class S3:
             response = bucket.objects.filter(Prefix=folder_name)
             return any(obj.key.startswith(folder_name) for obj in response)
         except Exception as e:
-            raise RuntimeError(f"Failed to check if folder exists in S3: {e}")
+            err = f"Failed to check if folder exists in S3: {e}"
+            logger.error(err)
     
     def create_folder(self, folder_name):
         try:
             bucket = self.s3_client.Bucket(self.bucket_name)
             bucket.put_object(Key=f"{folder_name}/")
         except Exception as e:
-            raise RuntimeError(f"Failed to create folder in S3: {e}")
+            err = f"Failed to create folder in S3: {e}"
+            logger.error(err)
     
     def download_file(self, s3_path, local_path):
         local_dir = os.path.dirname(local_path)
@@ -71,9 +77,11 @@ class S3:
             bucket.download_file(s3_path, local_path)
             return local_path
         except NoCredentialsError:
-            raise RuntimeError("Credentials not available or not valid.")
+            err = "Credentials not available or not valid."
+            logger.error(err)
         except Exception as e:
-            raise RuntimeError(f"Failed to download file from S3: {e}")
+            err = f"Failed to download file from S3: {e}"
+            logger.error(err)
 
     def upload_file(self, local_path, s3_path):
         try:
@@ -81,9 +89,11 @@ class S3:
             bucket.upload_file(local_path, s3_path)
             return s3_path
         except NoCredentialsError:
-            raise RuntimeError("Credentials not available or not valid.")
+            err = "Credentials not available or not valid."
+            logger.error(err)
         except Exception as e:
-            raise RuntimeError(f"Failed to upload file to S3: {e}")
+            err = f"Failed to upload file to S3: {e}"
+            logger.error(err)
     
     def get_save_path(self, filename_prefix, image_width=0, image_height=0):
         def map_filename(filename):
@@ -126,10 +136,14 @@ class S3:
 
 
 def get_s3_instance():
-    s3_instance = S3(
-        region=os.getenv("S3_REGION"),
-        access_key=os.getenv("S3_ACCESS_KEY"),
-        secret_key=os.getenv("S3_SECRET_KEY"),
-        bucket_name=os.getenv("S3_BUCKET_NAME")
-    )
-    return s3_instance
+    try:
+        s3_instance = S3(
+            region=os.getenv("S3_REGION"),
+            access_key=os.getenv("S3_ACCESS_KEY"),
+            secret_key=os.getenv("S3_SECRET_KEY"),
+            bucket_name=os.getenv("S3_BUCKET_NAME")
+        )
+        return s3_instance
+    except Exception as e:
+        err = f"Failed to create S3 instance: {e} Please check your environment variables."
+        logger.error(err)
