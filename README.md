@@ -16,14 +16,14 @@ S3_OUTPUT_DIR = "..."
 
 # Available Features
 ComfyUI nodes to:
-- load/save image from/to Amazon S3 buckets
+- [x] load/save image from/to Amazon S3 buckets
+- [x] save video files to Amazon S3 buckets
 
 # TODO
 ComfyUI nodes to:
-- load video from Amazon S3 buckets
-- save video to Amazon S3 buckets
-- load checkpoints from Amazon S3 buckets
-- Integrate ComfyS3 to [ComfyUI-Manager](https://github.com/ltdrdata/ComfyUI-Manager)
+- [] load video from Amazon S3 buckets
+- [] load checkpoints from Amazon S3 buckets
+- [] Integrate ComfyS3 to [ComfyUI-Manager](https://github.com/ltdrdata/ComfyUI-Manager)
 
 # Credits
 - [ComfyUI](https://github.com/comfyanonymous/ComfyUI)
