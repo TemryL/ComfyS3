@@ -7,11 +7,8 @@ ComfyS3 seamlessly integrates with [Amazon S3](https://aws.amazon.com/en/s3/) in
 
 - Look for ```ComfyS3```, and be sure the author is ```TemryL```. Install it.
 
-![image](assets/ComfyS3_card.png)
-
-
 ### Manually:
-- Clone this repo into `custom_nodes` folder.
+- Clone this repo into `custom_nodes` folder in ComfyUI.
 
 ### Define S3 Config
 Create `.env` file in ComfyS3 root folder with the following variables:
