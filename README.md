@@ -5,8 +5,9 @@ ComfyS3 seamlessly integrates with [Amazon S3](https://aws.amazon.com/en/s3/) in
 
 ### Using ComfyUI Manager:
 
-1. Look for ```ComfyS3```, and be sure the author is ```TemryL```. Install it.
-![image](https://github.com/Kosinkadink/ComfyUI-AnimateDiff-Evolved/assets/7365912/2c7f29e1-d024-49e1-9eb0-d38070142584)
+- Look for ```ComfyS3```, and be sure the author is ```TemryL```. Install it.
+
+![image](assets/ComfyS3_card.png)
 
 
 ### Manually:
