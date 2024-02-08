@@ -27,7 +27,7 @@ ComfyUI nodes to:
 - [x] standalone download/upload file from/to Amazon S3
 - [x] load/save image from/to Amazon S3 buckets
 - [x] save VHS (VideoHelperSuite) video files to Amazon S3 buckets
-- [ ] install ComfyS3 from [ComfyUI-Manager](https://github.com/ltdrdata/ComfyUI-Manager)
+- [x] install ComfyS3 from [ComfyUI-Manager](https://github.com/ltdrdata/ComfyUI-Manager)
 - [ ] load checkpoints from Amazon S3 buckets
 - [ ] load video from Amazon S3 buckets
 
