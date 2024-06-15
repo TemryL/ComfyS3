@@ -22,6 +22,9 @@ S3_INPUT_DIR = "..."
 S3_OUTPUT_DIR = "..."
 ```
 
+### Optional S3 Config Variables
+- ```S3_ENTPOINT_URL``` allows the useage of a AWS Private Link or Other S3 Compatible Storage Solutions
+
 # Available Features
 ComfyUI nodes to:
 - [x] standalone download/upload file from/to Amazon S3
