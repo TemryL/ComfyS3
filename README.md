@@ -1,7 +1,7 @@
 # ComfyS3: Amazon S3 Integration for ComfyUI 
 ComfyS3 seamlessly integrates with [Amazon S3](https://aws.amazon.com/en/s3/) in [ComfyUI](https://github.com/comfyanonymous/ComfyUI). This open-source project provides custom nodes for effortless loading and saving of images, videos, and checkpoint models directly from S3 buckets within the ComfyUI graph interface.
 
-# Installation
+## Installation
 
 ### Using ComfyUI Manager:
 
@@ -25,7 +25,7 @@ S3_OUTPUT_DIR = "..."
 ### Optional S3 Config Variables
 - ```S3_ENDPOINT_URL``` allows the useage of a AWS Private Link or Other S3 Compatible Storage Solutions
 
-# Available Features
+## Available Features
 ComfyUI nodes to:
 - [x] standalone download/upload file from/to Amazon S3
 - [x] load/save image from/to Amazon S3 buckets
@@ -34,6 +34,6 @@ ComfyUI nodes to:
 - [ ] load checkpoints from Amazon S3 buckets
 - [ ] load video from Amazon S3 buckets
 
-# Credits
+## Credits
 - [ComfyUI](https://github.com/comfyanonymous/ComfyUI)
 - [ComfyUI-VideoHelperSuite](https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite)
