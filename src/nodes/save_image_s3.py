@@ -28,15 +28,18 @@ class SaveImageS3:
             },
                 }
 
-    RETURN_TYPES = ()
+    RETURN_TYPES = ("STRING",)
+    RETURN_NAMES = ("s3_image_paths",)
     FUNCTION = "save_images"
     OUTPUT_NODE = True
+    OUTPUT_IS_LIST = (True,)
     CATEGORY = "ComfyS3"
 
     def save_images(self, images, filename_prefix="ComfyUI", prompt=None, extra_pnginfo=None):
         filename_prefix += self.prefix_append
         full_output_folder, filename, counter, subfolder, filename_prefix = S3_INSTANCE.get_save_path(filename_prefix, images[0].shape[1], images[0].shape[0])
         results = list()
+        s3_image_paths = list()
         
         for image in images:
             i = 255. * image.cpu().numpy()
@@ -62,8 +65,11 @@ class SaveImageS3:
 
                     # Upload the temporary file to S3
                     s3_path = os.path.join(full_output_folder, file)
-                    S3_INSTANCE.upload_file(temp_file_path, s3_path)
+                    file_path = S3_INSTANCE.upload_file(temp_file_path, s3_path)
 
+                    # Add the s3 path to the s3_image_paths list
+                    s3_image_paths.append(file_path)
+                    
                     # Add the result to the results list
                     results.append({
                         "filename": file,
@@ -77,4 +83,4 @@ class SaveImageS3:
                 if temp_file_path and os.path.exists(temp_file_path):
                     os.remove(temp_file_path)
 
-        return { "ui": { "images": results } }
+        return { "ui": { "images": results},  "result": (s3_image_paths,) }
