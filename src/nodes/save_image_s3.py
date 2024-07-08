@@ -83,4 +83,4 @@ class SaveImageS3:
                 if temp_file_path and os.path.exists(temp_file_path):
                     os.remove(temp_file_path)
 
-        return { "ui": { "images": results},  "result": (s3_image_paths,) }
+        return { "ui": { "images": results },  "result": (s3_image_paths,) }
