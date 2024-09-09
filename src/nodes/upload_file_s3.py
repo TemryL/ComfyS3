@@ -8,7 +8,7 @@ class UploadFileS3:
     def INPUT_TYPES(s):
         return {
             "required":{
-                "file_name": ("STRING", {"default": "output"}),
+                "file_name": ("STRING", {"default": ""}),
                 "local_path": ("STRING", {"default": "input/example.png"}),
                 "s3_folder": ("STRING", {"default": "output"}),
                 "delete_local": (["false", "true"],),
