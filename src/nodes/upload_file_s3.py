@@ -8,7 +8,7 @@ class UploadFileS3:
     def INPUT_TYPES(s):
         return {
             "required":{
-                "file_name": ("STRING", {"default": ""}),
+                "s3_filename": ("STRING", {"default": ""}),
                 "local_path": ("STRING", {"default": "input/example.png"}),
                 "s3_folder": ("STRING", {"default": "output"}),
                 "delete_local": (["false", "true"],),
@@ -22,12 +22,12 @@ class UploadFileS3:
     RETURN_NAMES = ("s3_paths",)
     FUNCTION = "upload_file_s3"
 
-    def upload_file_s3(self, local_path, s3_folder, delete_local, file_name):
+    def upload_file_s3(self, local_path, s3_folder, delete_local, s3_filename):
         if isinstance(local_path, str):
             local_path = [local_path]
         s3_paths = []
         for path in local_path:
-            f_name = file_name if file_name else os.path.basename(path)
+            f_name = s3_filename if s3_filename else os.path.basename(path)
             s3_path = os.path.join(s3_folder, f_name)
             file_path = S3_INSTANCE.upload_file(path, s3_path)
             s3_paths.append(file_path)
