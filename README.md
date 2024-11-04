@@ -24,6 +24,7 @@ S3_OUTPUT_DIR = "..."
 
 ### Optional S3 Config Variables
 - ```S3_ENDPOINT_URL``` allows the useage of a AWS Private Link or Other S3 Compatible Storage Solutions
+- ```S3_ADDRESSING_STYLE``` allows the useage of different S3 addressing styles: auto/virtual/path, default is auto, useful for S3-Compatible Storage Solutions
 
 ## Available Features
 ComfyUI nodes to:

@@ -2,6 +2,7 @@ import os
 import boto3
 from .logger import logger
 from botocore.exceptions import NoCredentialsError
+from botocore.config import Config
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -28,12 +29,23 @@ class S3:
             logger.error(err)
     
         try:
+            addressing_style = os.getenv("S3_ADDRESSING_STYLE", "auto")
+            if addressing_style not in ["auto", "virtual", "path"]:
+                logger.warning(f"Invalid S3_ADDRESSING_STYLE value: {addressing_style}, using 'auto' instead")
+                addressing_style = "auto"
+            s3_config = Config(
+                s3={
+                    'addressing_style': addressing_style  # S3 addressing_style: auto/virtual/path
+                }
+            )
+
             s3 = boto3.resource(
                 service_name='s3',
                 region_name=self.region,
                 aws_access_key_id=self.access_key,
                 aws_secret_access_key=self.secret_key,
-                endpoint_url=self.endpoint_url
+                endpoint_url=self.endpoint_url,
+                config=s3_config
             )
             return s3
         except Exception as e:
